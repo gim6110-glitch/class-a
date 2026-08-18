@@ -34,11 +34,13 @@ jobs:
         with:
           gradle-version: '8.13'
 
-      - name: Extract app project
+      - name: Rebuild app archive
         run: |
+          cat project.part1 project.part2 project.part3 project.part4 | base64 -d > project-valid.zip
+          unzip -t project-valid.zip
           rm -rf appsrc
           mkdir -p appsrc
-          unzip -q project.zip -d appsrc
+          unzip -q project-valid.zip -d appsrc
           ls -la appsrc
 
       - name: Build debug APK
