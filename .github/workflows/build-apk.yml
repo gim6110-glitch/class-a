@@ -2,7 +2,7 @@ name: Build Android APK
 
 on:
   push:
-    branches: [ main, ai-sticker-v3-final ]
+    branches: [ main, apk-build-test ]
   pull_request:
     branches: [ main ]
   workflow_dispatch:
