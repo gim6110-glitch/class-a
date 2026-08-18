@@ -1,8 +1,8 @@
-name: Build Android APK
+name: Build AI Sticker Studio V3
 
 on:
   push:
-    branches: [ main, ai-sticker-v3 ]
+    branches: [ ai-sticker-v3 ]
   pull_request:
     branches: [ main ]
   workflow_dispatch:
@@ -34,13 +34,12 @@ jobs:
         with:
           gradle-version: '8.13'
 
-      - name: Extract V3 app project
+      - name: Extract project
         run: |
           unzip -t project-v3.zip
           rm -rf appsrc
           mkdir -p appsrc
           unzip -q project-v3.zip -d appsrc
-          ls -la appsrc
 
       - name: Build debug APK
         run: gradle -p appsrc --stacktrace assembleDebug
