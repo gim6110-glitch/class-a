@@ -41,6 +41,7 @@ jobs:
           rm -rf appsrc
           mkdir -p appsrc
           unzip -q project-valid.zip -d appsrc
+          sed -i 's/ImageButton.ScaleType.CENTER_INSIDE/ImageView.ScaleType.CENTER_INSIDE/g' appsrc/app/src/main/java/kr/aisticker/studio/MainActivity.kt
           ls -la appsrc
 
       - name: Build debug APK
